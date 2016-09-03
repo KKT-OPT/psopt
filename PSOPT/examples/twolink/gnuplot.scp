@@ -1,0 +1,12 @@
+
+set terminal pdf
+set output "twolinkarm_controls.pdf"
+set data style lines
+set multiplot
+set title 'Two link robotic arm: controls'
+set xlabel 'time (s)'
+set ylabel 'controls'
+set key box
+set key outside
+plot [ ] [-1.050000:1.050000] 'XY.dat' using 1:2 title "u1" with linespoints, 'XY.dat' using 1:3 title "u2" with linespoints
+unset multiplot

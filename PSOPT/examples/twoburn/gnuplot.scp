@@ -1,0 +1,10 @@
+
+set data style lines
+set multiplot
+set title 'Two burn trajectory - projection on the equatorial plane'
+set xlabel 'x (km)'
+set ylabel 'y (km)'
+set key box
+set key outside
+plot [ ] [-6047.868977:16499.898593] 'XY.dat' using 1:2 title "" with linespoints
+unset multiplot

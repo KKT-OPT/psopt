@@ -1,0 +1,16 @@
+
+\begin{table}
+\caption{Mesh refinement statistics: Two link robotic arm}
+\label{mesh_stats_twolink}
+\renewcommand{\tabcolsep}{0.15cm}
+\tiny
+\begin{tabular}{llllllllllll}
+Iter&DM&M&NV&NC&OE&CE&JE&HE&RHS&$\epsilon_{\max}$&CPU$_\mathrm{a}$ \\ \hline \\
+1&LGL-ST&40&242&169&3756&3756&481&0&150240&7.648e-04&3.328e+01\\
+\hline
+CPU$_\mathrm{b}$ &-&-&-&-&-&-&-&-&-&-&2.497e+00\\
+-&-&-&-&-&3756&3756&481&0&150240&-&3.578e+01\\
+\end{tabular}
+\newline \\ \emph{Key}: Iter=iteration number, DM= discretization method, M=number of nodes, NV=number of variables, NC=number of constraints, OE=objective evaluations,  	              CE = constraint evaluations, JE = Jacobian evaluations, HE = Hessian evaluations, RHS = ODE right hand side 		      evaluations, $\epsilon_{\max}$ = maximum relative ODE error, CPU$_\mathrm{a}$ = CPU time in seconds spent by NLP algorithm, 		      CPU$_\mathrm{b}$ = additional CPU time in seconds spent by PSOPT
+\normalsize
+\end{table}

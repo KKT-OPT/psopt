@@ -1,0 +1,12 @@
+
+set terminal pdf
+set output "missile_alt_vs_x.pdf"
+set data style lines
+set multiplot
+set title 'Missile problem: altitude (m)'
+set xlabel 'x (m)'
+set ylabel 'h (m)'
+set key box
+set key outside
+plot [ ] [0.000000:30.000000] 'XY.dat' using 1:2 title "h" with linespoints
+unset multiplot

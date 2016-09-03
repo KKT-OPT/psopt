@@ -10,6 +10,10 @@ DMATRIXDIR=../../../dmatrix
 
 CXSPARSE=../../../SuiteSparse/CXSparse
 LUSOL=../../../lusol/csrc
+SNOPTDIR=$(USERHOME)/snopt7
+SNOPTINTERFACEDIR=../../../snopt-interface
+SNOPT_LIBS    = $(SNOPTINTERFACEDIR)/lib/libsnopt7_cpp.a $(SNOPTDIR)/lib/libsnopt7.a #$(SNOPTDIR)/lib/libblas.a
+
 
 prefix = $(USERHOME)/Ipopt-3.12.3
 IPOPTINCDIR = -I${prefix}/Ipopt/src/Interfaces -I${prefix}/Ipopt/src/Common -I${prefix}/Ipopt/src/LinAlg
@@ -22,8 +26,6 @@ PSOPTDIR    = ../..
 PSOPTSRCDIR = ../../src
 EXAMPLESDIR = .
 LIBDIR        = $(SNOPTDIR)/lib
-# SNOPT_LIBS    = $(SNOPTDIR)/lib/libsnopt_cpp.a $(SNOPTDIR)/lib/libsnopt_c.a $(SNOPTDIR)/lib/libsnprint_c.a $(SNOPTDIR)/lib/libblas.a $(SNOPTDIR)/lib/libf2c.a
-SNOPT_LIBS    = 
 SPARSE_LIBS   = $(LUSOL)/liblusol.a  $(CXSPARSE)/Lib/libcxsparse.a -ldl
 # IPOPT_LIBS    =  $(IPOPTLIBDIR)/libipopt.a $(IPOPTLIBDIR)/libcoinhsl.a  $(IPOPTLIBDIR)/ThirdParty/libcoinmumps.a $(IPOPTLIBDIR)/ThirdParty/libcoinmetis.a -lpthread -lgfortran -lblas -llapack -latlas -lf77blas
 IPOPT_LIBS = `PKG_CONFIG_PATH=$(prefix)/lib64/pkgconfig:$(prefix)/lib/pkgconfig:$(prefix)/share/pkgconfig: /usr/bin/pkg-config --libs ipopt`
@@ -36,7 +38,7 @@ LDFLAGS	      = -Wl,--rpath -Wl,$(USERHOME)/Ipopt-3.12.3/lib
 
 CXX           = /usr/bin/g++
 CC            = /usr/bin/gcc
-CXXFLAGS      = -O0 -g -I$(USERHOME)/adolc_base/include -I$(SNOPTDIR)/cppsrc -I$(DMATRIXDIR)/include -I$(SNOPTDIR)/cppexamples -I$(PSOPTSRCDIR) -DLAPACK -DUNIX -DSPARSE_MATRIX -DUSE_IPOPT -I$(CXSPARSE)/Include -I$(CXSPARSE)/../SuiteSparse_config -I$(LUSOL) $(IPOPTINCDIR) -fomit-frame-pointer -pipe -DNDEBUG -pedantic-errors -Wimplicit -Wparentheses -Wreturn-type -Wcast-qual -Wall -Wpointer-arith -Wwrite-strings -Wconversion -fPIC -DHAVE_MALLOC
+CXXFLAGS      = -O0 -g -I$(USERHOME)/adolc_base/include -I$(DMATRIXDIR)/include -I$(SNOPTINTERFACEDIR)/include -I$(PSOPTSRCDIR) -DLAPACK -DUNIX -DSPARSE_MATRIX -DUSE_SNOPT -DUSE_IPOPT -I$(CXSPARSE)/Include -I$(CXSPARSE)/../SuiteSparse_config -I$(LUSOL) $(IPOPTINCDIR) -fomit-frame-pointer -pipe -DNDEBUG -pedantic-errors -Wimplicit -Wparentheses -Wreturn-type -Wcast-qual -Wall -Wpointer-arith -Wwrite-strings -Wconversion -fPIC -DHAVE_MALLOC
 
 CFLAGS        = -O0 -fPIC
 
@@ -51,7 +53,7 @@ CFLAGS        = -O0 -fPIC
 FLIBS        =  -lm /usr/lib/libf2c.a  -llapack -lf77blas -lcblas
 #FLIBS = ../dmatrix/lib/lapack_LINUX.a ../dmatrix/lib/blas_LINUX.a ../dmatrix/lib/F2CLIBS/libf2c_LINUX.a   -lm
 
-ALL_LIBRARIES = $(PSOPT_LIBS) $(DMATRIX_LIBS) $(FLIBS) $(SPARSE_LIBS) $(IPOPT_LIBS)  $(ADOLC_LIBS)
+ALL_LIBRARIES = $(PSOPT_LIBS) $(DMATRIX_LIBS) $(SNOPT_LIBS) $(FLIBS) $(SPARSE_LIBS) $(IPOPT_LIBS)  $(ADOLC_LIBS)
 
 
 

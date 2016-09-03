@@ -240,7 +240,7 @@ int main(void)
 ////////////////////////////////////////////////////////////////////////////
 
 
-    algorithm.nlp_method                  = "IPOPT";
+    algorithm.nlp_method                  = "SNOPT"; //IPOPT";
     algorithm.scaling                     = "automatic";
     algorithm.derivatives                 = "automatic";
     algorithm.nlp_iter_max                = 1000;

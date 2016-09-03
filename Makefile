@@ -5,6 +5,7 @@ F2CLIB = $(F2CLIBRARY)
 DMATRIXDIR=./dmatrix
 CXSPARSE=./SuiteSparse/CXSparse
 LUSOL=./lusol/csrc
+SNOPTDIR=$(USERHOME)/snopt7
 
 prefix = $(USERHOME)/Ipopt-3.12.3
 # Directory with header files
@@ -24,10 +25,13 @@ ADOLC_LIBS    = -ladolc
 PSOPT_LIBS    = $(PSOPTDIR)/lib/libpsopt.a
 DMATRIX_LIBS  = $(DMATRIXDIR)/lib/libdmatrix.a
 
+SNOPT_LIBS    = $(SNOPTDIR)/lib/libsnopt_cpp.a $(SNOPTDIR)/lib/libblas.a
 
-$(CXSPARSE_LIBS):
+
+# $(CXSPARSE_LIBS):
 # 	(cp UFconfig.h $(CXSPARSE)/Include;cd $(CXSPARSE)/Lib; $(MAKE))
-	(cd $(CXSPARSE);cd ..;$(MAKE))
+$(CXSPARSE_LIBS):
+	(cd $(CXSPARSE); $(MAKE) library )
 
 $(LUSOL_LIBS):
 	(cp Makefile.lusol $(LUSOL)/Makefile; cd $(LUSOL); $(MAKE))
@@ -195,5 +199,6 @@ distclean:
 	(cd $(LUSOL); $(MAKE) clean)
 	(cd $(DMATRIXDIR)/examples; $(MAKE) distclean)
 	(cd $(PSOPTDIR)/lib; $(MAKE) distclean)
+
 
 

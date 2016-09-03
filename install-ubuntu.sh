@@ -1,19 +1,19 @@
 # Script for Ubuntu 14.04
 # Install miscellaneous libraries
-sudo apt-get -y install g++ gfortran f2c libf2c2-dev libf2c2 libblas-dev libopenblas-base libopenblas-dev libblas3gf libatlas-base-dev liblapack-dev liblapack3gf
-# Download and install Ipopt, Metis and Mumps
-cd $HOME/Downloads
-wget --continue http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.3.tgz
-cd $HOME
-tar xzvf ./Downloads/Ipopt-3.12.3.tgz
-cd $HOME/Ipopt-3.12.3/ThirdParty/Metis
-./get.Metis
-cd $HOME/Ipopt-3.12.3/ThirdParty/Mumps
-./get.Mumps
-cd $HOME/Ipopt-3.12.3
-./configure --enable-static coin_skip_warn_cxxflags=yes
-make -j
-make install
+#sudo apt-get -y install g++ gfortran f2c libf2c2-dev libf2c2 libblas-dev libopenblas-base libopenblas-dev libblas3gf libatlas-base-dev liblapack-dev liblapack3gf
+## Download and install Ipopt, Metis and Mumps
+#cd $HOME/Downloads
+#wget --continue http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.3.tgz
+#cd $HOME
+#tar xzvf ./Downloads/Ipopt-3.12.3.tgz
+#cd $HOME/Ipopt-3.12.3/ThirdParty/Metis
+#./get.Metis
+#cd $HOME/Ipopt-3.12.3/ThirdParty/Mumps
+#./get.Mumps
+#cd $HOME/Ipopt-3.12.3
+#./configure --enable-static coin_skip_warn_cxxflags=yes
+#make -j
+#make install
 # Download and install ADOLC and ColPack
 cd $HOME/Downloads
 wget --continue www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.2.tgz

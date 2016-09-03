@@ -3,7 +3,7 @@ PSOPT results summary
 =====================
 
 Problem: 					Missile problem
-CPU time (seconds):				3.227818e+00
+CPU time (seconds):				2.550185e+00
 NLP solver used: 				IPOPT
 Optimal (unscaled) cost function value: 	4.091754e+01
 Phase 1 endpoint cost function value:		4.091754e+01
